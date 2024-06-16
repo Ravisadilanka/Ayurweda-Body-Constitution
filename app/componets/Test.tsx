@@ -226,7 +226,7 @@ const options: Record<string, string[]> = {
   "Body Size": ["Slim", "Medium", "Large"],
   "Body Weight": ["Low", "Medium", "Overweight"],
   Height: ["Tall Or Short", "Average", "Thin And Sturdy Or Short And Stocky"],
-"Bone Structure": [
+  "Bone Structure": [
     "Light, Small Bones, Prominent Joints",
     "Medium Bone Structure",
     "Large, Broad Shoulders, Heavy Bone Structure",
@@ -367,7 +367,6 @@ const options: Record<string, string[]> = {
     "Lavender, Lemon, Eucalyptus",
   ],
   Concentration: ["Good", "Moderate", "Poor"],
-
 };
 
 export default function Home() {
@@ -413,6 +412,12 @@ export default function Home() {
       setResult("Kapha Pitha");
     } else if (k > 14 && v < 13 && v > p) {
       setResult("Kapha Vatha");
+    } else if (k <= 12 && v == p) {
+      setResult("Vatha Pitha");
+    } else if (p <= 12 && v == k) {
+      setResult("Vatha Kapha");
+    } else if (v <= 12 && p == k) {
+      setResult("Pitha Kapha");
     } else if (
       (k === 14 && p === 13 && v === 13) ||
       (p === 14 && k === 13 && v === 13) ||
