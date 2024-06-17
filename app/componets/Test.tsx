@@ -400,30 +400,46 @@ export default function Home() {
     const p = newCounts.Pitha;
     const k = newCounts.Kapha;
 
-    if (v >= 14 && p < 13 && p >= k) {
-      setResult("Vatha Pitha");
-    } else if (v >= 14 && k < 13 && k >= p) {
-      setResult("Vatha Kapha");
-    } else if (p >= 14 && v < 13 && v >= k) {
-      setResult("Pitha Vatha");
-    } else if (p >= 14 && k < 13 && k >= v) {
-      setResult("Pitha Kapha");
-    } else if (k >= 14 && p < 13 && p >= v) {
-      setResult("Kapha Pitha");
-    } else if (k >= 14 && v < 13 && v >= p) {
-      setResult("Kapha Vatha");
-    } else if (k <= 12 && v == p) {
-      setResult("Vatha Pitha");
-    } else if (p <= 12 && v == k) {
-      setResult("Vatha Kapha");
-    } else if (v <= 12 && p == k) {
-      setResult("Pitha Kapha");
-    } else if (
-      (k === 14 && p === 13 && v === 13) ||
-      (p === 14 && k === 13 && v === 13) ||
-      (v === 14 && p === 13 && k === 13)
-    ) {
-      setResult("Thridosha");
+    if (v + p + k === 40) {
+      if (v > p && p > k) {
+        setResult("Vatha Pitha");
+      } else if (v > k && k > p) {
+        setResult("Vatha Kapha");
+      } else if (p > v && v > k) {
+        setResult("Pitha Vatha");
+      } else if (p > k && k > v) {
+        setResult("Pitha Kapha");
+      } else if (k > v && v > p) {
+        setResult("Kapha Vatha");
+      } else if (k > p && p > v) {
+        setResult("Kapha Pitha");
+      } else if ((v >= 14 && p < 13 && p > k) || (v > 14 && p < 13 && p >= k)) {
+        setResult("Vatha Pitha");
+      } else if ((v >= 14 && k < 13 && k > p) || (v > 14 && k < 13 && k >= p)) {
+        setResult("Vatha Kapha");
+      } else if ((p >= 14 && v < 13 && v > k) || (p > 14 && v < 13 && v >= k)) {
+        setResult("Pitha Vatha");
+      } else if ((p >= 14 && k < 13 && k > v) || (p > 14 && k < 13 && k >= v)) {
+        setResult("Pitha Kapha");
+      } else if ((k >= 14 && p < 13 && p > v) || (k > 14 && p < 13 && p >= v)) {
+        setResult("Kapha Pitha");
+      } else if ((k >= 14 && v < 13 && v > p) || (k > 14 && v < 13 && v >= p)) {
+        setResult("Kapha Vatha");
+      } else if (k <= 12 && v === p) {
+        setResult("Vatha Pitha");
+      } else if (p <= 12 && v === k) {
+        setResult("Vatha Kapha");
+      } else if (v <= 12 && p === k) {
+        setResult("Pitha Kapha");
+      } else if (
+        (k === 14 && p === 13 && v === 13) ||
+        (p === 14 && k === 13 && v === 13) ||
+        (v === 14 && p === 13 && k === 13)
+      ) {
+        setResult("Thridosha");
+      } else {
+        setResult("Something Wrong!");
+      }
     } else {
       setResult("Please select all the fields.");
     }
