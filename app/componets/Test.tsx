@@ -400,17 +400,17 @@ export default function Home() {
     const p = newCounts.Pitha;
     const k = newCounts.Kapha;
 
-    if (v > 14 && p < 13 && p > k) {
+    if (v >= 14 && p < 13 && p >= k) {
       setResult("Vatha Pitha");
-    } else if (v > 14 && k < 13 && k > p) {
+    } else if (v >= 14 && k < 13 && k >= p) {
       setResult("Vatha Kapha");
-    } else if (p > 14 && v < 13 && v > k) {
+    } else if (p >= 14 && v < 13 && v >= k) {
       setResult("Pitha Vatha");
-    } else if (p > 14 && k < 13 && k > v) {
+    } else if (p >= 14 && k < 13 && k >= v) {
       setResult("Pitha Kapha");
-    } else if (k > 14 && p < 13 && p > v) {
+    } else if (k >= 14 && p < 13 && p >= v) {
       setResult("Kapha Pitha");
-    } else if (k > 14 && v < 13 && v > p) {
+    } else if (k >= 14 && v < 13 && v >= p) {
       setResult("Kapha Vatha");
     } else if (k <= 12 && v == p) {
       setResult("Vatha Pitha");
